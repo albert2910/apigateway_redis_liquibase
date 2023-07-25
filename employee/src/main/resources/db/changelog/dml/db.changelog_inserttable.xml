@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1" author="linhdepzai">
+        <sql>
+            INSERT INTO employee (employee_name, employee_age, employee_login_id, employee_login_password,employee_department_id) VALUES('Albert Anhxtanh', 23, 'albert', '111111', 1);
+            INSERT INTO employee (employee_name, employee_age, employee_login_id, employee_login_password,employee_department_id) VALUES('Michale Nguyen', 32, 'michale', '111111',2);
+            INSERT INTO employee (employee_name, employee_age, employee_login_id, employee_login_password,employee_department_id) VALUES('John Doe', 22, 'john', '111111',3);
+            INSERT INTO employee (employee_name, employee_age, employee_login_id, employee_login_password,employee_department_id) VALUES('Maria Luna', 33, 'maria', '111111',4);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

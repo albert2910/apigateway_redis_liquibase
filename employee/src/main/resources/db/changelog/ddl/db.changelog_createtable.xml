@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="0" author="linhdepzai">
+        <sql>
+            CREATE TABLE employee (
+                                  employee_id BIGINT NOT NULL AUTO_INCREMENT,
+                                  employee_name VARCHAR(255) NOT NULL,
+                                  employee_age INT(255) NOT NULL,
+                                  employee_login_id VARCHAR(255) NOT NULL,
+                                  employee_login_password VARCHAR(255) NOT NULL,
+                                  employee_department_id BIGINT NOT NULL,
+                                  PRIMARY KEY (employee_id),
+                                  FOREIGN KEY (employee_department_id) REFERENCES department(department_id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
