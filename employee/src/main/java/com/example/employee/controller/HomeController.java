@@ -24,7 +24,7 @@ public class HomeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeDTO> getEmployeeByName(@PathVariable Long id) {
+    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
         EmployeeDTO employee = employeeService.findEmployeeById(id);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
