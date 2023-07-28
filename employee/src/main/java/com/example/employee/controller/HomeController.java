@@ -24,9 +24,13 @@ public class HomeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable Long id) {
-        EmployeeDTO employee = employeeService.findEmployeeById(id);
-        return new ResponseEntity<>(employee, HttpStatus.OK);
+    public ResponseEntity<?> getEmployeeById(@PathVariable Long id) {
+        try {
+            EmployeeDTO employee = employeeService.findEmployeeById(id);
+            return new ResponseEntity<>(employee, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping

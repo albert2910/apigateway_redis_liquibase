@@ -4,6 +4,7 @@ import com.example.employee.dto.EmployeeDTO;
 import com.example.employee.model.Employee;
 import com.example.employee.repository.EmployeeRepository;
 import com.google.common.reflect.TypeToken;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class EmployeeService {
     @Autowired
     EmployeeRepository employeeRepository;
@@ -68,7 +70,15 @@ public class EmployeeService {
         employee.setEmployeeLoginPassword(employeeDTO.getEmployeeLoginPassword());
         employee.setDepartmentId(employeeDTO.getDepartmentId());
         employeeRepository.save(employee);
+
     }
+
+    //
+//    public String addSuccess(EmployeeDTO employeeSave) {
+//        //EmployeeDTO employeeSave = new EmployeeDTO(3L, "Cuong Beo", 24, "cuongbeo", "111111", null, 2L);
+//        addEmployee(employeeSave);
+//        return "success";
+//    }
 //    @CacheEvict(value = "employee", key = "#employeeDTO.employeeId")
     @CachePut(value = "employee", key = "#employeeDTO.employeeId")
     public EmployeeDTO editEmployee(EmployeeDTO employeeDTO) {

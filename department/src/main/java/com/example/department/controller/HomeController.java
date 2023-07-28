@@ -1,6 +1,7 @@
 package com.example.department.controller;
 
 import com.example.department.model.Department;
+import com.example.department.model.DepartmentTest;
 import com.example.department.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,11 +21,13 @@ public class HomeController {
 
     @GetMapping
     public ResponseEntity<List<Department>> getAllDepartments() {
-        return new ResponseEntity<>(departmentService.getDepartments(), HttpStatus.OK);
+            return new ResponseEntity<>(departmentService.getDepartments(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Department> getDepartmentById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(departmentService.findDepartmentById(id), HttpStatus.OK);
+    public ResponseEntity<DepartmentTest> getDepartmentById(@PathVariable("id") Long id) {
+        DepartmentTest departmentTest = departmentService.findDepartmentById(id);
+//        Department department = new Department(departmentTest.getDepartmentId(), departmentTest.getDepartmentName());
+            return new ResponseEntity<>(departmentTest, HttpStatus.OK);
     }
 }
